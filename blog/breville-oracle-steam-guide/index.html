@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breville/Sage Oracle – ångfel och felkoder att kolla först</title>
+<meta name="description" content="Ångfel på Breville/Sage Oracle – vad ångsidans Error- och ER-koder betyder, rengöring av ångröret först, och när kalk är den verkliga orsaken.">
+<link rel="canonical" href="https://sv.codefixcoffee.com/blog/breville-oracle-steam-guide/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+<meta name="google-adsense-account" content="ca-pub-9660119725457689"><script>(function(){var u="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660119725457689";var d=false;function l(){if(d)return;d=true;var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src=u;document.head.appendChild(s)}["scroll","pointerdown","keydown","touchstart"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});addEventListener("load",function(){setTimeout(l,3500)})})();</script></head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Tillbaka till webbplatsen</a></span></div></header>
+<main>
+<h1>Breville/Sage Oracle – ångfel och felkoder att kolla först</h1>
+<p class="meta">2026-10-22</p>
+<p>Ångsidan är den plats där en Breville Oracle jobbar hårdast: rostfri ångpanna, automatiskt skummande ångrör, nivåsonder och en påfyllnadspump, allt varmt dagligen. Där skapas också en stor andel av maskinens felkoder. Oracle-familjen använder en servicetabell på 32 poster som Breville inte publicerar, och samma hårdvara bär <strong>Sage</strong>-logon i Storbritannien och Sverige – koderna är identiska. Innan du utgår från en trasig del bör du jobba igenom de billiga kontrollerna: de flesta stopp på ångsidan orsakas av en igenproppad ångrörsspets, en utebliven spolning eller kalk på en sond, och de åtgärderna är i princip gratis.</p>
+<h2>Var ångkoderna sitter i Oracletabellen</h2>
+<p>Oracle (BES980) och Oracle Touch (BES990) delar en tabell; BES980 visar posterna som "Error 1" till "Error 32" medan BES990 skriver ER framför. De ångrelaterade posterna samlas på fem ställen:</p>
+<ul>
+<li><strong>Error 1 till 4</strong> – ångpannans temperaturgivare: avbrott vid uppstart, försvinner under drift och kortslutning i båda lägena. En enda givare, fyra sätt att rapportera.</li>
+<li><strong>Error 13 till 16</strong> – samma kvartett för ångrörets egen temperaturgivare, sonden som avslutar autoskumningen vid rätt mjölktemperatur. Den sitter på maskinens blötaste ställe.</li>
+<li><strong>Error 18</strong> – ångpannan värms inte upp som den ska.</li>
+<li><strong>Error 20 och 21</strong> – vattennivån eller påfyllnadspumpen i ångpannan, respektive en nivåsond som inte stämmer med vad styrkortet väntar sig.</li>
+<li><strong>Error 26</strong> – ångpannan överhettade över målvärdet; <strong>Error 32</strong> är ångpanneläcka eller misslyckad påfyllnad.</li>
+</ul>
+<p>Inte allt nära röret är ångsidans: koderna 5 till 8 tillhör kaffepannans givare, där <a href="https://sv.codefixcoffee.com/breville/oracle-bes980/error-8/">Error 8</a> är posten för kortslutning under drift. Att läsa den lagrade loggen hjälper dig att skilja familjerna åt – på BES980 håller du in 1 CUP, 2 CUP och POWER samtidigt med maskinen avstängd för att öppna Error Storage och stega igenom alla 32 koder med räknare.</p>
+<h2>Börja med att rengöra ångröret</h2>
+<p>Svag eller spottande ånga, eller en kod direkt efter en mjölkdryck, pekar oftare på rörspetsen än på pannan:</p>
+<ol>
+<li>Dra ur kontakten och låt röret svalna.</li>
+<li>Skruva av ångspetsen och lägg den i hett vatten med lite avkalkningsmedel; rensa varenda hål med nålen på rengöringsverktyget.</li>
+<li>Kör spolningen: cirka tio sekunder ånga rakt ner i droppbrickan utan spetsen på, och sedan igen med spetsen påskruvad.</li>
+<li>Spola ur röret efter varje mjölkpass hädanefter; inorkad mjölk i spetsen är det som startar de flesta av de här stoppen.</li>
+</ol>
+<p>Övervakar maskinen ångtrycket, som Oracle Jet gör med sin E16-kod, kan en igenkakad spets slå ut en kod innan du ens har märkt att ångan blivit svag.</p>
+<h2>Hårdhet, kalk och nivåsonderna</h2>
+<p>Där vattnet är hårt skriver kalken sina egna felkoder. Ångpannans nivåsonder står jämt i hett vatten, och en kalkbeläggning isolerar sonden så att kortet läser "inget vatten" fast pannan är full – det är den klassiska vägen till Error 20 eller 21 och till misslyckad påfyllnad vid Error 32. Kalk avsätts också i ångrörets kanaler och vid påfyllnadspumpens insug. En fullständig avkalkning, ångpannecykeln inkluderad, är den billigaste diagnostik du kan köra, och den löser förvånansvärt många koder helt på egen hand.</p>
+<p>Syskonet i sortimentet bevisar samma poäng: Dual Boiler håller sina koder 00 till 12 dolda i en självtestmeny, och <a href="https://sv.codefixcoffee.com/breville/dual-boiler-bes920/00/">kod 00</a> – ångpannans givare hittas inte – ligger i toppen av en tabell vars nivå- och påfyllnadskoder beter sig likadant under hårt vatten.</p>
+<h2>När avkalkning räcker – och när den inte gör det</h2>
+<p>Avkalka först och plocka isär sen – men vet var avkalkningen slutar hjälpa:</p>
+<ul>
+<li><strong>Avkalka först</strong> vid nivå-, sond- och påfyllnadskoder (20, 21, 32), vid svag ånga utan kod och på varje maskin vars senaste cykel är mer än tre månader gammal. Kostnaden: en flaska avkalkningsmedel.</li>
+<li><strong>Avkalkning hjälper inte</strong> mot en givarkod som återkommer direkt på en nyligen avkalkad, varm maskin – oavsett om det är en ångpannepost från 1 till 4 eller <a href="https://sv.codefixcoffee.com/breville/oracle-bes980/error-8/">Error 8</a> på kaffesidan. En kod som överlever en avkalkning pekar på givaren, dess kabel eller en kontakt.</li>
+<li><strong>Stanna och kolla packningarna</strong> om Error 26 återkommer: en läckande o-ring kring ångsonden låter ånga värma givarkabeln och härma en okontrollerad panna. Nya o-rings till sonden är billiga; ett triackort som inte stänger av värmaren är det inte.</li>
+<li><strong>Error 18</strong> på en maskin som har slutat ånga helt är oftast ett fel på värmarsidan – termisk säkring, värmeelement eller kort – inte kalk, så behandla det som en reparation i stället för en städning.</li>
+</ul>
+<p>Ska du ändå öppna maskinen finns demonteringsguider för flera espressomaskiner på <a href="https://www.ifixit.com/">iFixit</a> – bra när du vill lokalisera givare och kontakter innan du beställer delar.</p>
+<h2>Vad delarna kostar</h2>
+<p>Temperaturgivare i original ligger på cirka €25 till €95 beroende på vilken givare det gäller; ångrörsenheter, som har sin givare inkluderad, kostar runt €60 till €95; ett kit med sond och o-rings omkring €85 och en påfyllnadspump €30 till €60. Ställ det mot tillverkarens offerter för interna fel utanför garantin, som ofta landar på €300 till €500 – en avkalkningsflaska först och en givarbyte sedan är nästan alltid den bättre kalkylen. Den Sage-märkta täckningen av samma tabeller finns på engelska i <a href="https://sv.codefixcoffee.com/uk/">UK-upplagan av sajten</a>.</p>
+<h3>Sverige – hur hårt är ditt vatten?</h3>
+<p>I större delen av Sverige är kranvattnet mjukt, vilket gör rena kalkfel som Error 20, 21 och 32 ovanligare här än i till exempel sydöstra England – men i Skåne, på Öland och Gotland är vattnet betydligt hårdare och kalken ett reellt problem. Din kommun publicerar dricksvattenanalyser med uppgift om vattenhårdhet, så slå upp ditt värde och låt det styra avkalkningsintervallet i stället för manualens maxtid.</p>
+</main>
+<footer>Reparationsguider och felkoder från codefixcoffee.com.</footer>
+</body></html>
