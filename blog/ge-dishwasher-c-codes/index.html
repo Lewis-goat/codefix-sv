@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GE-diskmaskinens C-koder – tömning, påfyllnad och värme</title>
+<meta name="description" content="GE-diskmaskinens C-koder C1–C8 täcker tömning, påfyllnad och värme, plus felkod 888 och CFE för styrkort – och service-menyn som visar senaste felet.">
+<link rel="canonical" href="https://sv.codefixcoffee.com/blog/ge-dishwasher-c-codes/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/ge-dishwasher-c-codes/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+<meta name="google-adsense-account" content="ca-pub-9660119725457689"><script>(function(){var u="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660119725457689";var d=false;function l(){if(d)return;d=true;var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src=u;document.head.appendChild(s)}["scroll","pointerdown","keydown","touchstart"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});addEventListener("load",function(){setTimeout(l,3500)})})();</script></head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Tillbaka till webbplatsen</a></span></div></header>
+<main>
+<h1>GE-diskmaskinens C-koder – tömning, påfyllnad och värme</h1>
+<p class="meta">2026-10-23</p>
+<p>GE-diskmaskiner rapporterar fel som C-koder på displayen: C1 till och med C8, plus H2O för påfyllnadsproblem och 888 eller CFE när själva korten krånglar. Till skillnad från de flesta tillverkare publicerar GE ingen officiell lista över vad koderna betyder, så ägaren får själv matcha en teckenkombination mot ett symtom. Vår <a href="https://sv.codefixcoffee.com/ge/dishwasher/">avdelning för GE-diskmaskiner</a> går igenom alla koder; det här inlägget tar familjerna i den ordning du sannolikt möter dem och avslutar med tricket i service-menyn som visar vad maskinen senast lagrade.</p>
+<h2>Tömningsfamiljen – C1 till C3</h2>
+<p>Tre koder, ett system. C1 betyder att avloppspumpen körde i mer än två minuter utan att tömma tråget (på vissa äldre modeller flaggar koden i stället en fastkilad knapp); C2 att pumpen inte startade alls eller att slangen var totalt stoppad; C3 är den generella posten "tömmer inte som den ska". Misstänkta är alltid desamma – ett filter och en sump full av smuts, en hopklämd tömningsslang, en nyligen monterad avfallskvarn där proppen för slanganlutningen fortfarande sitter kvar, eller en defekt avloppspump. Börja med det kostnadsfria enligt <a href="https://sv.codefixcoffee.com/ge/dishwasher/c1/">C1-sidan</a>: dra ut underkorgen, rensa filtret och sumpen, och följ slangen under vasken. En avloppspump kostar €40 till €80 om den visar sig bara surra eller vara helt tyst.</p>
+<h2>Påfyllnadsfel – C4, C5 och H2O</h2>
+<ul>
+<li><strong>C4</strong> – överfyllnad, eller att maskinen fyllde två gånger efter ett strömavbrott. Påfyllnadsventilen stänger inte tätt, eller flottörbrytaren som ska stoppa påfyllnaden har fastnat i skräp. Se <a href="https://sv.codefixcoffee.com/ge/dishwasher/c4/">C4-sidan</a> för flottörkontrollen; fylls tråget med strömmen avslagen läcker ventilen igenom och måste bytas (€25 till €50).</li>
+<li><strong>C5</strong> – för lite vatten: inte tillräckligt mycket vatten nådde tråget på utsatt tid. En påfyllnadskran på glid, ett igenproppat insugsfilter eller en svag ventil.</li>
+<li><strong>H2O</strong> – inget vatten alls. Kontrollera att påfyllnadskranen under vasken är öppen och att slangen inte är klämd innan du rör något annat.</li>
+</ul>
+<h2>Värmefel – C6 till C8</h2>
+<p>C6 betyder att vattnet aldrig nådde cirka 50 °C ens efter den förlängda uppvärmningen. Låt kranen rinna tills vattnet är hett innan du startar programmet – kommer kallt vatten in hinner värmeelementet kanske aldrig ikapp. Kommer disken ut kall och blöt, mät värmeelementets kontinuitet; element ligger på €30 till €60 och säkerhetstermostaten på €10 till €20. C7 gäller vattnets temperaturgivare (termistorn) och dess krets: ofta en lös plugg eller en billig givare, även om koden på vissa modeller i stället täcker grumlighetssensorn. C8 är oftast mekaniskt snarare än termiskt – doseringsluckan kunde inte öppnas för att en disk stod i vägen eller torkat diskmedel kilat fast spärren.</p>
+<h2>888 och CFE – kortkoderna</h2>
+<p>När felet är elektroniskt i stället för hydrauliskt säger GE det rakt ut. <a href="https://sv.codefixcoffee.com/ge/dishwasher/888/">888</a> betyder att huvudstyrkortet inte klarade sitt eget självtest – ofta efter att en spänningsstöt från ett åskväder skrivit fel i ett minnesregister, och ibland för att en läcka fuktat ner kortet. <a href="https://sv.codefixcoffee.com/ge/dishwasher/cfe/">CFE</a> betyder att den dörrmonterade användarpanelen och huvudkortet slutat kommunicera, oftast en nött kabelhärvla i gångjärnsområdet eller en fuktig kontakt. Båda koderna börjar med att du slår av och på strömmen; båda slutar med ett kortbyte om koden återkommer, till €90 till €200 för huvudkortet eller €60 till €120 för panelen. I <a href="https://www.geappliances.com/">GE Appliances supportsidor</a> finns manualer per modell om du vill dubbelkolla displayens symboler.</p>
+<h2>Service-menyn – läs det senaste felet</h2>
+<p>En diskmaskin som har stannat av och till i veckor visar ofta ingenting när du står framför den. Kortet minns däremot, och på de flesta GE-diskmaskiner kan du fråga det:</p>
+<ol>
+<li>Öppna dörren helt.</li>
+<li>Håll Start-knappen intryckt i fem sekunder för att öppna service-menyn.</li>
+<li>På modeller där displayen sitter dold bakom dörrlisten trycker du i stället på Select Cycle och Start samtidigt i fem sekunder.</li>
+<li>Läs av det senast lagrade felet på displayen och stäng sedan dörren.</li>
+<li>För att återställa kortet bryter du strömmen i proppskåpet i 60 sekunder.</li>
+</ol>
+<p>Anteckna koden, nollställ och kör ett program: en lagrad C3 från tre veckor sedan plus en färsk C3 idag är ett riktigt tömningsfel, inte en tillfällighet.</p>
+<h2>Vad reparationerna kostar</h2>
+<p>Nästan varje C-kodslösning är en pump, en ventil, en givare eller en doseringsenhet – delar mellan €10 och €80 – plus eget arbete om du känner dig bekväm med att bryta strömmen och lossa en panel. Styrkorten är undantaget på €90 till €200. Ett hembesök av en vitvarutekniker ligger på €120 till €250 för diagnos plus del, vilket är väl spenderade pengar för kortkoderna och sällan nödvändigt för ett igenproppat filter.</p>
+<h3>Sverige – importmaskiner och svenska avlopp</h3>
+<p>GE-diskmaskiner säljs sällan nya i Sverige, så reservdelar beställs oftast från USA – räkna med längre leveranstider och tillkommande moms och frakt. En maskin byggd för den amerikanska marknaden är dessutom konstruerad för 120 V, medan det svenska elnätet ger 230 V, så en USA-import behöver transformsator för att överhuvudtaget fungera. Eftersom avfallskvarnar är ovanliga i svenska kök ansluts tömningsslangen här oftast mot en sifon under vasken – det är där du letar efter klämda eller avglidda slangar i stället för bakom en kvarn.</p>
+</main>
+<footer>Reparationsguider och felkoder från codefixcoffee.com.</footer>
+</body></html>
