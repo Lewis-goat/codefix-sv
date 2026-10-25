@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>"C-koder i Samsung-ugnar: temperaturfamiljen i smartspisen"</title>
+<meta name="description" content=""Samsung C-21, C-24 och C-F2: överhettningstopp, snabb temperaturstegring vid ventilationsområdet och kylfläktåterkoppling på NE- och NX-spisar."">
+<link rel="canonical" href="https://sv.codefixcoffee.com/blog/samsung-oven-c-codes/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/samsung-oven-c-codes/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+<meta name="google-adsense-account" content="ca-pub-9660119725457689"><script>(function(){var u="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660119725457689";var d=false;function l(){if(d)return;d=true;var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src=u;document.head.appendChild(s)}["scroll","pointerdown","keydown","touchstart"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});addEventListener("load",function(){setTimeout(l,3500)})})();</script></head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Tillbaka till webbplatsen</a></span></div></header>
+<main>
+<h1>"C-koder i Samsung-ugnar: temperaturfamiljen i smartspisen"</h1>
+<p class="meta">2026-10-25</p>
+<p>Samsungs spisar och inbyggnadsugnar — NE- och NX-serierna tillsammans med syskonen NV och NZ — talar två olika felkodsdialekter. Koder i två delar, som E-08 och E-27, rapporterar om ugnens värmedelar, medan korta koder som SE och tE handlar om kontrollpanelen. Mitt emellan ligger C-familjen: C-21, C-24 och C-F2, temperatur- och fläktövervakningen som samlas i <a href="https://sv.codefixcoffee.com/samsung-oven-error-codes/">registret över Samsung-ugnens felkoder</a>. Ta de här kodarna på största allvar — minst en av dem betyder att ugnen verkligen blev för varm.</p>
+<h2>Ingen fellogg att läsa ut</h2>
+<p>Samsung-ugnar saknar fellogg som användaren kommer åt. Koden står kvar på displayen tills orsaken är åtgärdad eller du bryter strömmen — vid C-koderna räknar procedurerna med fem till tio minuter i säkringsskåpet. Kommer koden tillbaka efter återställningen ska du tolka den som verklig i stället för att återställa igen och hoppas på det bästa.</p>
+<h2>C-21: nödstopp vid överhettning</h2>
+<p><a href="https://sv.codefixcoffee.com/samsung/range-wall-oven/c-21/">C-21</a> betyder att säkerhetsövervakningen har sett ugnens inre temperatur klättra över det säkra fönstret, varvid styrkortet stängt av värmen. Användare har beskrivit spisar som blivit farligt heta innan koden dyker upp — det här är alltså en signal att avbryta tillagningen, inte ett irritationsmoment. Den vanligaste boven är ugnens temperaturgivare eller dess kabel; huvudkortet är misstänkt nummer två.</p>
+<ol>
+<li>Bryt strömmen i fem till tio minuter och testa en gång. Kommer C-21 tillbaka vid nästa uppvärmning är felet verkligt.</li>
+<li>Koppla ifrån spisen, skruva loss de två skruvarna som håller givarspetsen på ugnens bakvägg och dra försiktigt fram kabeln tills den lossnar.</li>
+<li>Mät givaren med en multimätare: omkring 1 080 ohm vid rumstemperatur är friskt. Öppen krets eller ett helt galet värde betyder byte.</li>
+<li>Granska kontakten efter värmeskador där kabeln passerar nära värmeelementet — en smält kontakt ger exakt samma kod.</li>
+<li>Är givaren frisk men felet kvarstår reglerar kortet elementen fel, och då är det ett ärende för service.</li>
+</ol>
+<h2>C-24: kontrollen av snabb temperaturstegring</h2>
+<p><a href="https://sv.codefixcoffee.com/samsung/range-wall-oven/c-24/">C-24</a> upptäcks kring ventilations- och elektronikområdet: utrymmet med kretskorten värms upp snabbare än styrkortet räknat med. Samsung dokumenterar C-24/C-25-familjen som en övertemperatur knuten till ventilationsområdet. I praktiken delar sig felet tre vägar: en kylfläkt som aldrig börjar snurra, blockerad luft runt spisen eller en åldrande övertemperaturtermistor som läser ett friskt område som hett.</p>
+<p>Diagnosen handlar mest om att lyssna och titta. Återställ i säkringsskåpet, starta ett bakprogram och lyssna efter konvektions- och kylfläkten när ugnen värms upp — tystnad är ditt svar. Kontrollera installationsutrymmet och att inga luftöppningar under eller bakom spisen skärmas av snickerier, folie eller damm. Med strömmen av kan övertemperaturtermistorn mätas i sin kontakt; den ligger i samma klass strax över 1 000 ohm som ugnsgivaren, och en som är öppen eller driver byts ut. Är fläkten död byter du den innan styrkortet steker sig — värmen är orsaken och kortet är offret.</p>
+<h3>Sverige: fast anslutning och inbyggnadsdjup</h3>
+<p>I svenska kök är ugnen ofta fast ansluten, och fasta elinstallationer ska enligt de svenska elsäkerhetsreglerna utföras av en behörig elinstallatör — bryt strömmen i gruppsäkringen i stället för att leta efter ett uttag. Bygger du in ugnen i ett högt skåp, kontrollera spaltmåtten mot installationsanvisningen: trång inbyggnad skärmar av kyluften, vilket är precis det C-24 reagerar på. Har du tappat bort anvisningen finns den att hämta hos <a href="https://www.samsung.com/se/support/">Samsungs svenska support</a>.</p>
+<h2>C-F2: kylfläktens återkoppling</h2>
+<p><a href="https://sv.codefixcoffee.com/samsung/range-wall-oven/c-f2/">C-F2</a> ser ut som en överhettungskod men är det oftast inte. C-F-familjen betyder att kontrollsystemet inte får svar från en bevakad komponent, och i C-F2:s fall är det kylfläktkretsen: displaykortet väntar på en återkopplingssignal som aldrig kommer. Antingen står fläkten still ändå, sitter dess kontakt löst eller är värmskadad, eller så har återkopplingsledningen till kortet fallerat.</p>
+<p>Arbeta i ordning. Efter en återställning värmer du ugnen och kontrollerar att fläkten verkligen snurrar. Snurrar den medan koden kvarstår pekar det på återkopplingsvägen: lossa och sätt tillbaka fläktkontakten på kortet och leta efter missfärgade stift. Håller fläkten tyst letar du efter ett fastkilat blad — damm eller en tappad skruv bakom panelen — och mäter sedan lindningen efter öppen krets. Fläkt och kontakt är billiga åtgärder; en C-F2 som överlever båda kontrollerna pekar mot huvudkortets ingång.</p>
+<h2>Vad delarna kostar</h2>
+<p>Ugnstemperaturgivare kostar €15–€40 och är ett tiominutersjobb med skruvmejsel — den vanligaste lösningen i hela familjen. Kylfläktar ligger på €40–€90 och kabelsatser på €10–€20. Den dyrare posten är huvudkortet på €150–€300, och det ska du inte börja handla förrän givare och fläkt är avprovade. Ett teknikerbesök kostar cirka €120–€250 för diagnos plus del; på en garantilös spis med kortfel är offerten ett första steg, inte det sista.</p>
+<p>En regel gäller hela familjen: återställ inte en C-21 gång på gång och fortsätt laga mat. Koden betyder att kortet redan registrerat en temperatur det inte gillade, och nästa utlösning kan ligga högre upp på skalan.</p>
+</main>
+<footer>Reparationsguider och felkoder från codefixcoffee.com.</footer>
+</body></html>
