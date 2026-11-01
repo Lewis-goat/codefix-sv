@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Är det värt att laga? Den ärliga kalkylen</title>
+<meta name="description" content="Räkna på reparationen: delpris och arbete mot maskinens klass, ärliga trösklar per prisnivå och när en renoverad maskin slår offerten.">
+<link rel="canonical" href="https://sv.codefixcoffee.com/blog/repair-cost-math-worth-it/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/repair-cost-math-worth-it/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+<meta name="google-adsense-account" content="ca-pub-9660119725457689"><script>(function(){var u="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660119725457689";var d=false;function l(){if(d)return;d=true;var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src=u;document.head.appendChild(s)}["scroll","pointerdown","keydown","touchstart"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});addEventListener("load",function(){setTimeout(l,3500)})})();</script></head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Tillbaka till webbplatsen</a></span></div></header>
+<main>
+<h1>Är det värt att laga? Den ärliga kalkylen</h1>
+<p class="meta">2026-11-01</p>
+<p>När felkoden lyser på displayen är diagnosen bara halva jobbet. Den andra halvan är aritmetik: är den här maskinen värd en lagning, eller är det idag den blir reservdelsförråd? Det ärliga svaret beror på tre saker — vad delen kostar, vem som monterar den och vilken klass maskinen tillhör. Sentimentalitet för det du en gång betalade ingår inte i räkningen.</p>
+<h2>Börja med två tal</h2>
+<p>Det första talet är ersättningsvärdet, inte inköpspriset. Vad du betalade för tre år sedan är ointressant; vad en motsvarande maskin kostar idag är siffran som styr beslutet. Det andra talet är den realistiska reparationskostnaden: delen, arbetet om du inte monterar själv, och en liten buffert för det andra fel som då och då gömmer sig bakom det första.</p>
+<p>En vanlig tumregel säger att en reparation lönar sig så länge den håller sig under hälften av ersättningsvärdet. Det är en förnuftig utgångspunkt, men tröskeln flyttar sig på riktigt med maskinens klass — i båda riktningarna.</p>
+<h2>Vad de vanligaste koderna faktiskt kostar</h2>
+<p>Det uppmuntrande i reparationsstatistiken är att koderna folk möter oftast ligger i den billiga änden av reservdelslistan.</p>
+<ul>
+<li><strong>Jura Error 8</strong> är ett bryggenhetsfel där cykeln inte går runt, och de flesta fall löses med en rengöringstablett till €15 till €25 asken — <a href="https://www.jura.com/">Jura säljer sina egna</a>. Även sämre utgångar är måttliga: en bryggenhet ligger på €80 till €150 och en drivmotor på €40 till €70. <a href="https://sv.codefixcoffee.com/jura/automatic-machines/error-8/">Referensen för Error 8</a> kallar den koden för den en tablett brukar fixa, och kalkylen håller för det.</li>
+<li><strong>Jura Error 2</strong>, märkets allra vanligaste kod, har en harmlös form som inte kostar något: en maskin som står under cirka 10 °C låser värmaren tills den blivit varm. Det riktiga felet — en NTC-givare på termoblocket eller slitna termosäkringskablar — betyder en äkta givare för €25 till €40 och ett kabelsats för €15 till €30. <a href="https://sv.codefixcoffee.com/jura/automatic-machines/error-2/">Error 2-sidan</a> går igenom båda spåren.</li>
+<li><strong>E4 på en GE-torktumlare</strong> är en utblåst termosäkring för €5 till €15, eller en högtemperaturstermostat för €10 till €25 — på en <a href="https://sv.codefixcoffee.com/ge/dryer/e4/">torktumlare som fortfarande går</a> är det så billigt ett fel kan bli. Villkoret: åtgärda också det dåliga luftflöde som blåste säkringen, annars går den nya samma väg.</li>
+<li><strong>Samsung E-27</strong> betyder att ugnens temperaturgivare läser öppen krets. Givaren kostar €20 till €40, <a href="https://www.samsung.com/">Samsungs reservedels- och supportsidor</a> listar den, och <a href="https://sv.codefixcoffee.com/samsung/range-wall-oven/e-27/">jobbet bedöms som lätt</a>: två skruvar inne i ugnshålan, en kontakt, klart.</li>
+<li><strong>Philips och Saeco Error 05</strong> är luft i vattenkretsen, och att fylla ett nymonterat filter ordentligt kostar <a href="https://sv.codefixcoffee.com/philips-saeco/espresso-machines/error-05/">helt ingenting</a>.</li>
+</ul>
+<p>Mot den sortens tal är en fungerande maskin nästan aldrig värd att skrota.</p>
+<h2>Arbetskostnaden är det som flyttar kalkylen</h2>
+<p>Vem som håller i skruvmejseln spelar större roll än själva delen. Monterar du själv kostar reparationerna ovan precis sitt delpris. Hos en verkstad förskjuts kalkylen:</p>
+<ul>
+<li>Tillverkarservice utanför garantitid på en helautomat ligger normalt på €250 till €500 inklusive returfrakt; oberoende kaffemaskinsverkstäder är oftast billigare för ett delbyte.</li>
+<li>Ett hembesök av en vitvarutekniker för torktumlare eller spis landar på €120 till €250 för diagnos plus del.</li>
+</ul>
+<p>En givare för €30 blir en reparation för €180 i samma ögonblick den förs över ett verkstadsgolv. Det är inget överpris — det är kvalificerad arbetstid, ett bänktest och garanti på jobbet — men det är den siffran som avgör frågan.</p>
+<h2>Trösklar per maskinklass</h2>
+<ol>
+<li><strong>Enklare bön-till-kopp-maskiner, cirka €300 till €700 nya.</strong> Dra åt tumregeln mot 40 procent. En offert på €250 mot en maskin för €500 är en dålig affär om maskinen inte är i princip ny.</li>
+<li><strong>Mellanklassmaskiner, €700 till €1500.</strong> Standardregeln gäller: laga så länge totalsumman ligger under hälften av ersättningsvärdet.</li>
+<li><strong>Premiummaskiner — Jura S, Z och GIGA, från €1500 och uppåt.</strong> Slappna av tröskeln mot 60 eller 70 procent. Delförsörjningen är god, konstruktionen belönar lagning och en ersättningsmaskin är rejält dyr.</li>
+<li><strong>Torktumlare, ugnar och övriga vitvaror.</strong> Fel på givare, säkring och brytare är nästan alltid värda att åtgärda oavsett ålder; styrkort till €100 till €200 är den från-fall-till-fall-delen.</li>
+</ol>
+<h2>När en renoverad maskin slår offerten</h2>
+<p>Ibland är det ärliga svaret att sluta. Tre situationer pekar dit:</p>
+<ul>
+<li>Offerten hamnar på eller över priset för en fabriksrenoverad maskin — som kommer med garanti, vilket din reparation kanske inte gör.</li>
+<li>En enklare maskin runt tio år behöver ett stort aggregat. Praktikerguiden för <a href="https://sv.codefixcoffee.com/jura/">Juras koder</a> säger det rakt ut: på en tio år gammal E, ENA eller Impressa ska offerten jämföras med en renoverad maskin, medan samma lagning på en Z eller GIGA är värd att göra.</li>
+<li>Felen vandrar — först en givare, sedan en ventil, sedan ett styrkort inom ett år. Maskiner meddelar hög ålder genom sina felkoder.</li>
+</ul>
+<p>Räkna innan du känner. Namnge delen, prissätt den, prissätt arbetet och håll båda talen mot dagens ersättningsvärde. De flesta koder klarar den kalkylen med god marginal. Resten försökte säga dig något.</p>
+<h3>Sverige: reklamationen före offerten</h3>
+<p>Betalar du en reparation i förtid kan du gå miste om en gratis sådan. Under konsumentköplagen har du tre års reklamationsrätt på en maskin köpt av en svensk näringsidkare, och fel som visar sig inom de två första åren antas ha funnits redan vid köpet. Stäm av med säljaren innan du accepterar en offert på egen hand. Och när du väl lagar: många svenska verkstäder ger sex till tolv månaders garanti på utfört arbete — ta med den i jämförelsen mot en renoverad maskin.</p>
+</main>
+<footer>Reparationsguider och felkoder från codefixcoffee.com.</footer>
+</body></html>
